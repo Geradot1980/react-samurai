@@ -1,6 +1,6 @@
 import s from './Post.module.css'
 
-const Post = () => {
-	return <div className={s.item}>post2</div>
+const Post = (props) => {
+	return <div className={s.item}>{`${props.massage}  Likes ${props.likes}`}</div>
 }
 export default Post;

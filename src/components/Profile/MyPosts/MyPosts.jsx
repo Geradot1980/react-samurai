@@ -7,9 +7,9 @@ const MyPosts = () => {
 		<div><textarea name="" id="" cols="60" rows="5"></textarea>
 			<button>Add post</button></div>
 		<div>
-			<Post />
-			<Post />
-			<Post />
+			<Post massage='Hi, how are you?' likes='15' />
+			<Post massage="It's my first post." likes='25' />
+
 
 		</div>
 	</div>
