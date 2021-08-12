@@ -1,7 +1,7 @@
 .app-wrapper {
 	margin: 0 auto;
 	display: grid;
-	width: 1200px;
+	width: 95vw;
 	grid-template-areas:
 		"header header"
 		"nav contant"
@@ -15,24 +15,7 @@
 	width: 100%;
 }
 
-.header {
-	grid-area: header;
-	background: #FF6F00;
-}
 
-.header img {
-	width: 80px;
-}
-
-.nav {
-	grid-area: nav;
-	background: #009D91;
-}
-
-.contant {
-	grid-area: contant;
-	background: #5DCEC6;
-}
 
 .footer {
 	grid-area: footer;

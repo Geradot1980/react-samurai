@@ -1,0 +1,27 @@
+.item {
+	color: teal;
+}
+
+
+
+.banner_img {
+	width: 100%;
+	text-align: center;
+}
+
+.banner {
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+}
+
+.contant {
+	grid-area: contant;
+	background: #5DCEC6;
+}
+
+.avatar_img {
+	padding-top: 2px;
+	width: 150px;
+	height: 150px;
+}
