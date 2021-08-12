@@ -1,6 +1,4 @@
-
-
-import MyPosts from './MyPosts/MyPosts'
+import MyPosts from './Profile/MyPosts'
 import s from './Profile.module.css'
 
 const Profile = () => {
