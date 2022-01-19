@@ -15,9 +15,7 @@
 	width: 100%;
 }
 
-
-
-.footer {
-	grid-area: footer;
-	background: #A64800;
+.app-wrapper-contant {
+	grid-area: contant;
+	background: #5DCEC6;
 }

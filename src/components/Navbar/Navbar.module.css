@@ -8,7 +8,7 @@
 	color: white;
 }
 
-.item.active {
+.item a.active {
 	font-weight: 700;
 }
 

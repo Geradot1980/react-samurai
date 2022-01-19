@@ -1,0 +1,16 @@
+.dialogs {
+	display: grid;
+	grid-template-columns: 2fr 10fr;
+}
+
+/* .dialogsItems {} */
+
+/* .dialogPerson {} */
+
+.active {
+	font-weight: 700;
+}
+
+/* .messages {} */
+
+/* .massage {} */

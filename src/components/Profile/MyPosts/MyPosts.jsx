@@ -1,16 +1,18 @@
 import Post from './Post/Post'
-import s from './MyPosts.module.css'
+// import s from './MyPosts.module.css'
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+
+	let postsElements = props.postsData.map(post => <Post massage={post.massage} likes={post.likes} />);
+
+
 	return <div> My posts
 		<div><textarea name="" id="" cols="60" rows="5"></textarea>
-			<button>Add post</button></div>
+			<div><button>Add post</button></div></div>
 		<div>
-			<Post massage='Hi, how are you?' likes='15' />
-			<Post massage="It's my first post." likes='25' />
-
-
+			{postsElements}
 		</div>
 	</div>
 
