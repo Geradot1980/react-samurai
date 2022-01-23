@@ -10,6 +10,7 @@ const MessageItem = (props) => { return <div className={s.message}>{props.messag
 
 const Dialogs = (props) => {
 
+
 	let dialogElements = props.dialogsData.map(dialog => <DialogItem user={dialog.name} userid={dialog.id} />)
 	let messageElements = props.messagesData.map(dialog => <MessageItem message={dialog.message} />)
 
