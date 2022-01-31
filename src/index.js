@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './redax/state';
+import state from './redax/state.js';
 
 
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App dialogsData={state} />
+		<App state={state} />
 	</React.StrictMode>,
 	document.getElementById('root')
 );

@@ -20,6 +20,7 @@ const App = (props) => {
 	return (
 		<BrowserRouter>
 			<div className="app-wrapper">
+				console.log(props);
 				<Header />
 				<Navbar />
 				<div className="app-wrapper-contant">
