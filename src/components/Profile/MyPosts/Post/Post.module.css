@@ -1,3 +1,17 @@
 .item {
 	color: teal;
+	padding-left: 9px;
+}
+
+.avatar {
+	width: 60px;
+	height: 60px;
+	background: #000;
+	border-radius: 50%;
+}
+
+.message {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
