@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
 
@@ -22,16 +23,27 @@ const Dialogs = (props) => {
 	let dialogElements = props.state.dialogsData.map(dialog => <DialogItem user={dialog.name} userid={dialog.id} />)
 	let messageElements = props.state.messagesData.map(dialog => <MessageItem message={dialog.message} />)
 
+	let newPostElement = React.createRef();
+
+	// OnButtonClick
+	let OnButtonClick1 = () => {
+		let text = newPostElement.current.value;
+		alert(text);
+	}
+
 	return (
 		<div className={s.dialogs}>
 			<div div className={s.dialogsItems}>
 				{dialogElements}
 			</div>
-
 			<div className={s.messages}>
 				{messageElements}
+				<div><textarea name="" ref={newPostElement} cols="60" rows="5"></textarea>
+					<div><button onClick={OnButtonClick1}>Add post</button></div></div>
 			</div>
 		</div>
+
+
 	);
 };
 export default Dialogs;

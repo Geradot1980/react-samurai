@@ -1,18 +1,26 @@
 import Post from './Post/Post'
-// import s from './MyPosts.module.css'
+import s from './MyPosts.module.css'
+import React from 'react';
 
 
 const MyPosts = (props) => {
 
-
 	let postsElements = props.state.postsData.map(post => <Post massage={post.massage} likes={post.likes} />);
+	let newPostElement = React.createRef();
+
+	// OnButtonClick
+	let OnButtonClick = () => {
+		let text = newPostElement.current.value;
+		alert(text);
+	}
 
 	return <div> My posts
-		<div><textarea name="" id="" cols="60" rows="5"></textarea>
-			<div><button>Add post</button></div></div>
+		<div><textarea name="" ref={newPostElement} cols="60" rows="5"></textarea>
+			<div><button onClick={OnButtonClick}>Add post</button></div></div>
 		<div>
 			{postsElements}
 		</div>
+
 	</div>
 
 }
