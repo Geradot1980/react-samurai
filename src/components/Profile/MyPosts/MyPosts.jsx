@@ -10,8 +10,9 @@ const MyPosts = (props) => {
 
 	// OnButtonClick
 	let OnButtonClick = () => {
+		debugger;
 		let text = newPostElement.current.value;
-		alert(text);
+		props.addPost(text);
 	}
 
 	return <div> My posts

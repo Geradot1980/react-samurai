@@ -24,4 +24,13 @@ let state = {
 		]
 	}
 }
+
+export let addPost = (postMessage) => {
+	debugger;
+	let newPost = {
+		massage: postMessage,
+		likes: 0
+	};
+	state.profilePage.postsData.push(newPost);
+};
 export default state;
