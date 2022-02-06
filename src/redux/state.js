@@ -7,7 +7,8 @@ let state = {
 			{ massage: '2It\'s my first post.', likes: 115 },
 			{ massage: '3And What?', likes: 75 },
 			{ massage: 'I am good?', likes: 53 }
-		]
+		],
+		myPostsCurrentText: "Main text1"
 	},
 	messagesPage: {
 		messagesData: [
@@ -27,13 +28,31 @@ let state = {
 	}
 }
 
-export let addPost = (postMessage) => {
-
+/* export let addPost = (postMessage) => {
 	let newPost = {
 		massage: postMessage,
 		likes: 0
 	};
 	state.profilePage.postsData.push(newPost);
 	rerenderEntireTree(state);
+}; */
+
+
+
+export let addPost = () => {
+	let newPost = {
+		massage: state.profilePage.myPostsCurrentText,
+		likes: 0
+	};
+	state.profilePage.postsData.push(newPost);
+	state.profilePage.myPostsCurrentText = '';
+	rerenderEntireTree(state);
 };
+
+export let changeNewPostText = (NewPostText) => {
+	state.profilePage.myPostsCurrentText = NewPostText;
+	rerenderEntireTree(state);
+};
+
 export default state;
+

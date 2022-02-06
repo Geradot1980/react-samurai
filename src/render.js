@@ -1,4 +1,4 @@
-import /* state,  */ { addPost } from './redux/state';
+import /* state,  */ { addPost, changeNewPostText } from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import React from 'react';
@@ -11,7 +11,7 @@ export let rerenderEntireTree = (state) => {
 	ReactDOM.render(
 
 		<BrowserRouter>
-			<App state={state} addPost={addPost} />
+			<App state={state} addPost={addPost} changeNewPostText={changeNewPostText} />
 		</BrowserRouter>,
 		document.getElementById('root')
 
