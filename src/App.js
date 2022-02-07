@@ -1,4 +1,5 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+//import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Dialogs from './components/Dialogs/Dialogs';
 import Footer from './components/Footer/Footer';

@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render";
+//import { rerenderEntireTree } from "../render";
 
 let state = {
 	profilePage: {
@@ -37,9 +37,9 @@ let state = {
 	rerenderEntireTree(state);
 }; */
 
+let rerenderEntireTree;
 
-
-export let addPost = () => {
+export const addPost = () => {
 	let newPost = {
 		massage: state.profilePage.myPostsCurrentText,
 		likes: 0
@@ -49,10 +49,14 @@ export let addPost = () => {
 	rerenderEntireTree(state);
 };
 
-export let changeNewPostText = (NewPostText) => {
+export const changeNewPostText = (NewPostText) => {
 	state.profilePage.myPostsCurrentText = NewPostText;
 	rerenderEntireTree(state);
 };
+
+export const subscribe = (observer) => {
+	rerenderEntireTree = observer;
+}
 
 export default state;
 
