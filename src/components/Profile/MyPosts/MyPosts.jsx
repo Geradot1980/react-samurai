@@ -1,5 +1,5 @@
 import Post from './Post/Post'
-import s from './MyPosts.module.css'
+//import s from './MyPosts.module.css'
 import React from 'react';
 
 
@@ -11,13 +11,11 @@ const MyPosts = (props) => {
 
 	// OnButtonClick
 	let OnButtonClick = () => {
-		//let text = newPostElement.current.value;
-		props.addPost(/* text */);
-		//props.changeNewPostText('');
+		props.dispatch({ type: 'ADD-POST' });
 	}
 
 	let onPostChange = () => {
-		props.changeNewPostText(newPostElement.current.value);
+		props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', NewPostText: newPostElement.current.value });
 	}
 
 	return <div> My posts
