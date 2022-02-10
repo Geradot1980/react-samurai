@@ -1,7 +1,7 @@
 import Post from './Post/Post'
 //import s from './MyPosts.module.css'
 import React from 'react';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/state';
+import { addPostAC, updateNewPostTextAC } from '../../../redux/state';
 
 
 const MyPosts = (props) => {
@@ -11,16 +11,14 @@ const MyPosts = (props) => {
 
 
 	// OnButtonClick
-	let OnButtonClick = () => {
-		props.dispatch(addPostActionCreator());
-	}
+	let OnButtonClick = () => { props.dispatch(addPostAC()); }
 
 	let onPostChange = () => {
-		props.dispatch(updateNewPostTextActionCreator(newPostElement.current.value));
+		props.dispatch(updateNewPostTextAC(newPostElement.current.value));
 	}
 
 	return <div> My posts
-		<div><textarea onChange={onPostChange} name="" ref={newPostElement} value={props.myPostsCurrentText} />
+		<div><textarea onChange={onPostChange} ref={newPostElement} value={props.myPostsCurrentText} />
 			<div><button onClick={OnButtonClick}>Add post</button></div></div>
 		<div>
 			{postsElements}

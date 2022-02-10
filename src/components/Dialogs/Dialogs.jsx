@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { addMessageAC, updateNewMessagesTextAC } from '../../redux/state';
 import s from './Dialogs.module.css';
 
 //
@@ -20,15 +21,21 @@ const MessageItem = (props) => {
 //
 const Dialogs = (props) => {
 
-	let dialogElements = props.state.dialogsData.map(dialog => <DialogItem user={dialog.name} userid={dialog.id} />)
-	let messageElements = props.state.messagesData.map(dialog => <MessageItem message={dialog.message} />)
 
-	let newPostElement = React.createRef();
+	let dialogElements = props.messagesPage.dialogsData.map(dialog => <DialogItem user={dialog.name} userid={dialog.id} />)
+	let messageElements = props.messagesPage.messagesData.map(dialog => <MessageItem message={dialog.message} />)
+	let newMessagesElement = React.createRef();
+
+	//let newPostElement = React.createRef();
 
 	// OnButtonClick
 	let OnButtonClick1 = () => {
-		let text = newPostElement.current.value;
-		alert(text);
+		props.dispatch(addMessageAC());
+		//console.log("Button");
+	}
+	let onMessagesChange = () => {
+		props.dispatch(updateNewMessagesTextAC(newMessagesElement.current.value));
+		console.log(newMessagesElement.current.value);
 	}
 
 	return (
@@ -38,7 +45,7 @@ const Dialogs = (props) => {
 			</div>
 			<div className={s.messages}>
 				{messageElements}
-				<div><textarea name="" ref={newPostElement} cols="60" rows="5"></textarea>
+				<div><textarea onChange={onMessagesChange} ref={newMessagesElement} cols="40" rows="5" value={props.messagesPage.messagesCurrentText}></textarea>
 					<div><button onClick={OnButtonClick1}>Add post</button></div></div>
 			</div>
 		</div>

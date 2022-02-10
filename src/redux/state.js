@@ -1,6 +1,8 @@
 //import { rerenderEntireTree } from "../render";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGES_TEXT = 'UPDATE-NEW-MESSAGES-TEXT';
+const ADD_MESSAGES = 'ADD-MESSAGES';
 
 let store = {
 	_state: {
@@ -11,6 +13,7 @@ let store = {
 				{ massage: '3And What?', likes: 75 },
 				{ massage: 'I am good?', likes: 53 }
 			],
+
 			myPostsCurrentText: "Main text1"
 		},
 		messagesPage: {
@@ -21,6 +24,7 @@ let store = {
 				{ id: 4, message: "Mes4Geradot3" },
 				{ id: 5, message: "5Geradot4" }
 			],
+			messagesCurrentText: "Zero",
 			dialogsData: [
 				{ id: 1324, name: "Geradot" },
 				{ id: 98123, name: "Geradot1" },
@@ -50,18 +54,31 @@ let store = {
 			this._state.profilePage.myPostsCurrentText = action.NewPostText;
 			this._callSubscriber(this._state);
 		}
+		else if (action.type === UPDATE_NEW_MESSAGES_TEXT) {
+			this._state.messagesPage.messagesCurrentText = action.NewMessageText;
+			this._callSubscriber(this._state);
+		}
+		else if (action.type === ADD_MESSAGES) {
+			let newMessagesText = { id: 9, message: this._state.messagesPage.messagesCurrentText };
+			this._state.messagesPage.messagesData.push(newMessagesText);
+			this._state.messagesPage.messagesCurrentText = '';
+			this._callSubscriber(this._state);
+		}
 		else { alert(`Нет такого (${action.type}) в dispatch()`) };
-
 	}
 }
 
 
-export const addPostActionCreator = () => ({ type: ADD_POST });
 
-export const updateNewPostTextActionCreator = (NewPostText) => ({
+// секция ActionCreator
+export const addPostAC = () => ({ type: ADD_POST });
+export const updateNewPostTextAC = (NewPostText) => ({
 	type: UPDATE_NEW_POST_TEXT, NewPostText: NewPostText
 });
-
+export const addMessageAC = () => ({ type: ADD_MESSAGES });
+export const updateNewMessagesTextAC = (NewMessageText) => ({
+	type: UPDATE_NEW_MESSAGES_TEXT, NewMessageText: NewMessageText
+});
 export default store;
 window.store = store;
 

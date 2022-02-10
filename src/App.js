@@ -23,7 +23,8 @@ const App = (props) => {
 			<Header />
 			<Navbar />
 			<div className="app-wrapper-contant">
-				<Route path='/dialogs' render={() => <Dialogs state={props.state.messagesPage} />} />
+				<Route path='/dialogs' render={() =>
+					<Dialogs messagesPage={props.state.messagesPage} state={props.state} dispatch={props.dispatch} />} />
 				<Route path='/profile' render={() =>
 					<Profile state={props.state.profilePage}
 						dispatch={props.dispatch} />} />
