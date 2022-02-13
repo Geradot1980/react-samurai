@@ -1,8 +1,7 @@
 import './index.css';
-import store from './redux/state';
+import store from './redux/reduce';
 //import { rerenderEntireTree } from './render';
 import reportWebVitals from './reportWebVitals';
-//import { addPost, changeNewPostText, subscribe } from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import React from 'react';
