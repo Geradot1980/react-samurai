@@ -6,8 +6,23 @@ export const updateNewMessagesTextAC = (NewMessageText) => ({
 	type: UPDATE_NEW_MESSAGES_TEXT, NewMessageText: NewMessageText
 });
 
-
-const dialogsReducer = (state, action) => {
+let initialState = {
+	messagesData: [
+		{ id: 1, message: "Mes1" },
+		{ id: 2, message: "Mes2-Geradot1" },
+		{ id: 3, message: "Mes3-Geradot2" },
+		{ id: 4, message: "Mes4Geradot3" },
+		{ id: 5, message: "5Geradot4" }
+	],
+	messagesCurrentText: "Zero",
+	dialogsData: [
+		{ id: 1324, name: "Geradot" },
+		{ id: 98123, name: "Geradot1" },
+		{ id: 415657, name: "Geradot2" },
+		{ id: 71864, name: "Geradot3" },
+		{ id: 4561, name: "Geradot4" }]
+};
+const dialogsReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 		case UPDATE_NEW_MESSAGES_TEXT:

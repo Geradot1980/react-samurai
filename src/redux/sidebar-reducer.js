@@ -1,5 +1,5 @@
-
-const sidedarReducer = (state, action) => {
+let initialState = {};
+const sidedarReducer = (state = initialState, action) => {
 
 	return state;
 }

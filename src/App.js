@@ -10,15 +10,9 @@ import News from './components/News/News';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Settings/Settings';
 
-
-
-
-
-
 const App = (props) => {
 
 	return (
-
 		<div className="app-wrapper">
 			<Header />
 			<Navbar />
@@ -34,7 +28,6 @@ const App = (props) => {
 			</div>
 			<Footer />
 		</div >
-
 	);
 }
 
