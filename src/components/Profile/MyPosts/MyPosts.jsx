@@ -8,20 +8,24 @@ import { addPostAC, updateNewPostTextAC } from '../../../redux/profile-reducer';
 
 const MyPosts = (props) => {
 
-	let postsElements = props.state.postsData.map(post => <Post massage={post.massage} likes={post.likes} />);
+	let postsElements = props.posts.map(post => <Post massage={post.massage} likes={post.likes} />);
 	let newPostElement = React.createRef();
 
 
 	// OnButtonClick
-	let OnButtonClick = () => { props.dispatch(addPostAC()); }
+	let onAddPost = () => {
+		props.addPost();
+		//	props.dispatch(addPostAC());
+	}
 
 	let onPostChange = () => {
-		props.dispatch(updateNewPostTextAC(newPostElement.current.value));
+		//props.dispatch(updateNewPostTextAC(newPostElement.current.value));
+		props.updateNewPostText(newPostElement.current.value);
 	}
 
 	return <div> My posts
 		<div><textarea onChange={onPostChange} ref={newPostElement} value={props.myPostsCurrentText} />
-			<div><button onClick={OnButtonClick}>Add post</button></div></div>
+			<div><button onClick={onAddPost}>Add post</button></div></div>
 		<div>
 			{postsElements}
 		</div>

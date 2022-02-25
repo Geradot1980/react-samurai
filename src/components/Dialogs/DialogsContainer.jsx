@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { addMessageAC, updateNewMessagesTextAC } from '../../redux/dialogs-reducer';
+import Dialogs from './Dialogs';
 import s from './Dialogs.module.css';
 
 //
@@ -18,41 +19,25 @@ const MessageItem = (props) => {
 		<div className={s.message}>{props.message}</div></div>
 }
 //
-const Dialogs = (props) => {
+const DialogsContainer = (props) => {
 
-	let state = props.dialogsPage;
-	let dialogElements = state.dialogsData.map(dialog => <DialogItem user={dialog.name} userid={dialog.id} />)
-	let messageElements = state.messagesData.map(dialog => <MessageItem message={dialog.message} />)
-	let newMessagesText = state.messagesCurrentText;
+	let state = props.store.getState().dialogsPage;
+	//let dialogElements = props.dialogsPage.dialogsData.map(dialog => <DialogItem user={dialog.name} userid={dialog.id} />)
+	//let messageElements = props.dialogsPage.dialogsData.map(dialog => <MessageItem message={dialog.message} />)
 	//let newMessagesElement = React.createRef();
-
 
 
 	// OnButtonClick
 	let OnButtonClick1 = () => {
-		props.OnButtonClick1();
+		props.store.dispatch(addMessageAC());
 	}
-	let onMessagesChange = (e) => {
-		props.onMessagesChange(e.target.value);
+	let onMessagesChange = (text) => {
+		props.store.dispatch(updateNewMessagesTextAC(text));
 		//console.log(newMessagesElement.current.value);
 	}
 
-	return (
-		<div className={s.dialogs}>
-			<div div className={s.dialogsItems}>
-				{dialogElements}
-			</div>
-			<div className={s.messages}>
-				{messageElements}
-				<div><textarea onChange={onMessagesChange}
-					//ref={newMessagesElement}
-					cols="40" rows="5"
-					value={state.messagesCurrentText}></textarea>
-					<div><button onClick={OnButtonClick1}>Add post</button></div></div>
-			</div>
-		</div>
+	return (<Dialogs OnButtonClick1={OnButtonClick1} onMessagesChange={onMessagesChange}
+		dialogsPage={state} />)
 
-
-	);
 };
-export default Dialogs;
+export default DialogsContainer;

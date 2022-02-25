@@ -17,7 +17,7 @@ export const updateNewPostTextAC = (NewPostText) => ({
 });
 
 const profileReducer = (state = initialState, action) => {
-	debugger;
+
 	switch (action.type) {
 		case ADD_POST:
 			let newPost = {
