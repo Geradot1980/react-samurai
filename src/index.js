@@ -7,14 +7,15 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 const rerenderEntireTree = (state) => {
-	//debugger;
 	ReactDOM.render(
 		<BrowserRouter>
-			<App state={state} dispatch={store.dispatch.bind(store)} store={store} />
-		</BrowserRouter>,
-		document.getElementById('root'));
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</BrowserRouter>, document.getElementById('root'));
 }
 
 

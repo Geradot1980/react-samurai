@@ -1,13 +1,12 @@
 import Post from './Post/Post'
-//import s from './MyPosts.module.css'
 import React from 'react';
 import { addPostAC, updateNewPostTextAC } from '../../../redux/profile-reducer';
 import MyPosts from './MyPosts';
-//import { addPostAC, updateNewPostTextAC } from '../../../redux/dialogs-reducer';
-//import { addPostAC, updateNewPostTextAC } from '../../../redux/state';
+import { connect } from 'react-redux';
 
 
-const MyPostsContainer = (props) => {
+
+/* const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps) => {
 	//debugger;
 	//let postsElements = props.state.postsData.map(post => <Post massage={post.massage} likes={post.likes} />);
 	//let newPostElement = React.createRef();
@@ -25,9 +24,25 @@ const MyPostsContainer = (props) => {
 		//props.myPostsCurrentText(newPostElement.current.value);
 	}
 
-	return (<MyPosts updateNewPostText={onPostChange} addPost={addPost} posts={state.profilePage.postsData}
+	return (<MyPosts updateNewPostText={onPostChange} addPost={addPost} 
+		posts={state.profilePage.postsData}
 		myPostsCurrentText={state.profilePage.
 			myPostsCurrentText} />)
 
-}
+} */
+const mapStateToProps = (state) => {
+	return {
+		posts: state.profilePage.postsData,
+		myPostsCurrentText: state.profilePage.myPostsCurrentText
+	}
+};
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addPost: () => { dispatch(addPostAC()) },
+		updateNewPostText: (text) => { dispatch(updateNewPostTextAC(text)); }
+	}
+};
+
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 export default MyPostsContainer;

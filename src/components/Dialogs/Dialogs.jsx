@@ -32,8 +32,8 @@ const Dialogs = (props) => {
 	let OnButtonClick1 = () => {
 		props.OnButtonClick1();
 	}
-	let onMessagesChange = (e) => {
-		props.onMessagesChange(e.target.value);
+	let updateNewMessagesText = (e) => {
+		props.updateNewMessagesText(e.target.value);
 		//console.log(newMessagesElement.current.value);
 	}
 
@@ -44,7 +44,7 @@ const Dialogs = (props) => {
 			</div>
 			<div className={s.messages}>
 				{messageElements}
-				<div><textarea onChange={onMessagesChange}
+				<div><textarea onChange={updateNewMessagesText}
 					//ref={newMessagesElement}
 					cols="40" rows="5"
 					value={state.messagesCurrentText}></textarea>
