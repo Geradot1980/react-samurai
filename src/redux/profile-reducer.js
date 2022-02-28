@@ -24,13 +24,18 @@ const profileReducer = (state = initialState, action) => {
 				massage: state.myPostsCurrentText,
 				likes: 0
 			};
-			state.postsData.push(newPost);
-			state.myPostsCurrentText = '';
-			return state;
+			let stateCopy = { ...state };
+			stateCopy.postsData = [...state.postsData];
+			stateCopy.postsData.push(newPost);
+			stateCopy.myPostsCurrentText = '';
+			return stateCopy;
 
-		case UPDATE_NEW_POST_TEXT:
-			state.myPostsCurrentText = action.NewPostText;
-			return state;
+		case UPDATE_NEW_POST_TEXT: {
+			let stateCopy = { ...state };
+
+			stateCopy.myPostsCurrentText = action.NewPostText;
+			return stateCopy;
+		}
 		default:
 			return state;
 	}

@@ -23,14 +23,14 @@ const Dialogs = (props) => {
 	let state = props.dialogsPage;
 	let dialogElements = state.dialogsData.map(dialog => <DialogItem user={dialog.name} userid={dialog.id} />)
 	let messageElements = state.messagesData.map(dialog => <MessageItem message={dialog.message} />)
-	let newMessagesText = state.messagesCurrentText;
+	//let newMessagesText = state.messagesCurrentText;
 	//let newMessagesElement = React.createRef();
 
 
 
 	// OnButtonClick
-	let OnButtonClick1 = () => {
-		props.OnButtonClick1();
+	let sendMessage = () => {
+		props.sendMessage();
 	}
 	let updateNewMessagesText = (e) => {
 		props.updateNewMessagesText(e.target.value);
@@ -48,7 +48,7 @@ const Dialogs = (props) => {
 					//ref={newMessagesElement}
 					cols="40" rows="5"
 					value={state.messagesCurrentText}></textarea>
-					<div><button onClick={OnButtonClick1}>Add post</button></div></div>
+					<div><button onClick={sendMessage}>Add post</button></div></div>
 			</div>
 		</div>
 
